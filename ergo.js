@@ -11,6 +11,7 @@
     let detectURL = hostURL + "detect/";
     let connected = false;
     let motors = [];
+    let math = $.getScript('https://eesh.github.io/scratch-test/math.min.js')
 
     function setMotors(m) {
       motors = m;
