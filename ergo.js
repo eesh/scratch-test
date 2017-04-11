@@ -11,7 +11,15 @@
     let detectURL = hostURL + "detect/";
     let connected = false;
     let motors = [];
-    let math = $.getScript('https://eesh.github.io/scratch-test/math.min.js')
+    $.getScript('https://eesh.github.io/scratch-test/digit_recognition.js', checkMathLibrary);
+
+    function checkMathLibrary() {
+      if (math == undefined) {
+        console.log("Math library is not loaded");
+      } else {
+        console.log("Math library loaded.");
+      }
+    }
 
     function setMotors(m) {
       motors = m;
