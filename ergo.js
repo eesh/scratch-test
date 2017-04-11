@@ -11,13 +11,13 @@
     let detectURL = hostURL + "detect/";
     let connected = false;
     let motors = [];
-    $.getScript('https://eesh.github.io/scratch-test/digit_recognition.js', checkMathLibrary);
+    $.getScript('https://eesh.github.io/scratch-test/digit_recognition.js', checkDigitRecognitionLibrary);
 
-    function checkMathLibrary() {
+    function checkDigitRecognitionLibrary() {
       if (math == undefined) {
-        console.log("Math library is not loaded");
+        console.log("digit_recognition.js is not loaded");
       } else {
-        console.log("Math library loaded.");
+        console.log("digit_recognition.js loaded.");
       }
     }
 
