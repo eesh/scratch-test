@@ -356,10 +356,18 @@
 
     // Cleanup function when the extension is unloaded
     ext._shutdown = function() {
+      console.log('shutting down');
       if(updateInterval != undefined) {
         clearInterval(updateInterval);
       }
     };
+
+    ext._stop = function() {
+      console.log('stopping');
+      if(updateInterval != undefined) {
+        clearInterval(updateInterval);
+      }
+    }
 
     // Status reporting code
     // Use this to report missing hardware, plugin or unsupported browser
