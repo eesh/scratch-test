@@ -334,19 +334,19 @@
     };
 
     ext.getMarkersQueue = function() {
-      return markersQueue;
+      return commandQueue;
     };
 
     ext.getItemFromMarkerQueue = function(index) {
       console.log(index);
-      if(index > 0 && index <= markersQueue.length) {
-        console.log(markersQueue[index-1]);
-        return markersQueue[index-1];
+      if(index > 0 && index <= commandQueue.length) {
+        console.log(commandQueue[index-1]);
+        return commandQueue[index-1];
       }
     };
 
     ext.getLengthOfMarkerQueue = function() {
-      return markersQueue.length;
+      return commandQueue.length;
     }
 
     ext.getBlock1Position = function () {
