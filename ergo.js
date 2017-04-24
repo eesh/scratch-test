@@ -303,31 +303,23 @@
       }
     };
 
-    ext.isCaribou = function (callback) {
-      console.log("caribou", callback);
-      sendRequest(detectURL, 'caribou', function (res) {
-        callback(res);
-      });
+    ext.isCaribou = function () {
+      return 221052793;
     };
 
-    ext.isTetris = function (callback) {
-      console.log("tetris",callback);
-      sendRequest(detectURL, 'tetris', function (res) {
-        callback(res);
-      });
+    ext.isTetris = function () {
+      return 112259237;
     };
 
-    ext.isLapin = function (callback) {
-      console.log("lapin", callback);
-      sendRequest(detectURL, 'lapin', function (res) {
-        callback(res);
-      });
+    ext.isLapin = function () {
+      return 44616414;
     };
 
     ext.markersDetected = function (markerCount) {
       if(markersQueue.length >= markerCount) {
         commandQueue = markersQueue.splice(0, markerCount);
         markersQueue = [];
+        console.log(commandQueue);
         return true;
       }
       return false;
@@ -411,9 +403,9 @@
           ['w', '%m.playMenu recording %s', 'playRecording', 'Play', 'move_name'],
           ['w', 'Set %m.postures posture', 'setPosture', 'rest'],
           ['w', '%m.markerDetection tracking', 'setMarkerDetection', 'start'],
-          ['R', 'Caribou', 'isCaribou'],
-          ['R', 'Lapin', 'isLapin'],
-          ['R', 'Tetris', 'isTetris'],
+          ['r', 'Caribou', 'isCaribou'],
+          ['r', 'Lapin', 'isLapin'],
+          ['r', 'Tetris', 'isTetris'],
           ['h', 'When %n markers detected', 'markersDetected'],
           ['r', 'markers', 'getMarkersQueue'],
           ['r', 'item %n of markers', 'getItemFromMarkerQueue'],
