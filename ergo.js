@@ -295,7 +295,7 @@
       setPrimitive('tracking_feedback', toggle, callback)
       if(toggle == 'start') {
         detectionMode = true;
-      else {
+      } else {
         detectURL = false
       }
     };
