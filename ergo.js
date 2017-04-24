@@ -123,7 +123,7 @@
         if(e.length > 0) {
           connected = true;
           getMotorsList(callback);
-          updateInterval = setInterval(update, 2000);
+          updateInterval = setInterval(update, 1000);
         } else {
           connected = false;
           callback();
@@ -334,9 +334,7 @@
     };
 
     ext.getItemFromMarkerQueue = function(index) {
-      console.log(index);
       if(index > 0 && index <= commandQueue.length) {
-        console.log(commandQueue[index-1]);
         return commandQueue[index-1];
       }
     };
