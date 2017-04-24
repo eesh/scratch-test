@@ -335,6 +335,21 @@
 
     ext.getMarkersQueue = function() {
       return markersQueue;
+    };
+
+    ext.getItemFromMarkerQueue = function(index) {
+      if(index == 'last') {
+        return markersQueue[markersQueue.length-1];
+      } else {
+        index = parseInt(index);
+        if(index >= 0 && index < markersQueue.length) {
+          return markersQueue[index];
+        }
+      }
+    };
+
+    ext.getLengthOfMarkerQueue = function() {
+      return markersQueue.length;
     }
 
     ext.getBlock1Position = function () {
@@ -404,6 +419,8 @@
           ['R', 'Tetris', 'isTetris'],
           ['h', 'When %n markers detected', 'markersDetected'],
           ['r', 'markers', 'getMarkersQueue'],
+          ['r', 'item %n of markers', 'getItemFromMarkerQueue', 1],
+          ['r', 'length of markers', 'getLengthOfMarkerQueue']
           ['r', 'block 1', 'getBlock1Position'],
           ['r', 'block 2', 'getBlock2Position'],
           ['r', 'block 3', 'getBlock3Position'],
