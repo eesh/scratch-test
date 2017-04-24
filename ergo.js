@@ -1,6 +1,6 @@
 (function(ext) {
 
-    let hostURL = "http://18.85.58.226";
+    let hostURL = "http://18.85.58.226:6969/";
     let connectionURL = hostURL + "ip/";
     let motorsURL = hostURL + "motors/motors";
     let motorsPositionURL = hostURL + "motors/set/goto/";
