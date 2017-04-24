@@ -1,16 +1,25 @@
 (function(ext) {
 
-    let hostURL = "poppy.local";
+    let hostURL = "http://18.85.58.226";
     let connectionURL = hostURL + "ip/";
     let motorsURL = hostURL + "motors/motors";
     let motorsPositionURL = hostURL + "motors/set/goto/";
+    let motorsPositionGetURL = hostURL + "motors/get/positions"
     let motorRegisterURL = hostURL + "motors/set/registers/";
     let moveRecordURL = hostURL + "primitive/MoveRecorder/";
     let movePlayerURL = hostURL + "primitive/MovePlayer/";
     let primitivesURL = hostURL + "primitive/";
     let detectURL = hostURL + "detect/";
+    let imageURL = hostURL + "/sensor/camera/";
     let connected = false;
     let motors = [];
+    let markersQueue = [];
+    let commandQueue = [];
+    let detectionMode = false;
+    let motorPositions = [0, 0, 0, 0, 0, 0];
+    let updateInterval = undefined;
+
+
     $.getScript('https://eesh.github.io/scratch-test/digit_recognition.js', checkDigitRecognitionLibrary);
 
     function checkDigitRecognitionLibrary() {
@@ -18,6 +27,40 @@
         console.log("digit_recognition.js is not loaded");
       } else {
         console.log("digit_recognition.js loaded.");
+      }
+    }
+
+
+    function getMotorPostions() {
+      sendRequest(motorsPositionGetURL, null, function (response) {
+        if(response.length == 0) {
+          return;
+        }
+        motorPositions = response.split(';');
+      });
+    }
+
+    function getMarkers() {
+      if(detectionMode) {
+        sendRequest(detectURL.slice(0,-1), null, function (response) {
+          if(response != "False") {
+            markersQueue.concat(response.split(' '));
+            console.log(markersQueue);
+          }
+        });
+      }
+    }
+
+
+    function update() {
+      if(!connected) {
+        clearInterval(updateInterval);
+        updateInterval = undefined;
+        return;
+      }
+      getMotorPostions();
+      if(detectionMode) {
+          getMarkers();
       }
     }
 
@@ -42,12 +85,14 @@
       hostURL = host;
       connectionURL = hostURL + "ip/";
       motorsURL = hostURL + "motors/motors";
+      motorsPositionGetURL = hostURL + "motors/get/positions"
       motorsPositionURL = hostURL + "motors/set/goto/";
       motorRegisterURL = hostURL + "motors/set/registers/";
       moveRecordURL = hostURL + "primitive/MoveRecorder/";
       movePlayerURL = hostURL + "primitive/MovePlayer/";
       primitivesURL = hostURL + "primitive/"
       detectURL = hostURL + "detect/";
+      imageURL = hostURL + "/sensor/camera/";
     }
 
     function sendRequest(requestURL, params, callback) {
@@ -73,6 +118,7 @@
         if(e.length > 0) {
           connected = true;
           getMotorsList(callback);
+          updateInterval = setInterval(update, 1000);
         } else {
           connected = false;
           callback();
@@ -99,16 +145,21 @@
 
     ext.turnTo = function (direction, callback) {
       let angle = 0;
+      let params = "";
       if(direction == 'Left') {
         angle = 90;
+        params = "m1:goal_position:"+angle;
       } else if (direction == 'Right') {
         angle = -90;
+        params = "m1:goal_position:"+angle;
       } else if (direction == 'Front') {
         angle = 0;
+        params = "m1:goal_position:"+angle;
+        params += ";m3:goal_position:"+angle;
       } else {
-        angle = 180;
+        params = "m1:goal_position:0";
+        params += ";m3:goal_position:-90";
       }
-      let params = "m1:goal_position:"+angle;
       sendRequest(motorRegisterURL, params, function(response) {
         console.log("Turn ergo to", direction);
         callback();
@@ -167,6 +218,18 @@
       });
       console.log(values);
       setRegisterValues(selectedMotors, "compliant", values, callback);
+    }
+
+    getImage = function (params = '') {
+      function receiveImage(imageData) {
+        console.log(imageData);
+        if(imageData == undefined) {
+          return '';
+        }
+        return imageData;
+      }
+
+      sendRequest(imageURL, params, receiveImage);
     }
 
     ext.recordMove = function (selectedMotors, moveName, callback) {
@@ -229,7 +292,12 @@
     };
 
     ext.setMarkerDetection = function (toggle, callback) {
-      setPrimitive('tracking_feedback', toggle, callback);
+      setPrimitive('tracking_feedback', toggle, callback)
+      if(toggle == 'start') {
+        detectionMode = true;
+      else {
+        detectURL = false
+      }
     };
 
     ext.isCaribou = function (callback) {
@@ -251,10 +319,47 @@
       sendRequest(detectURL, 'lapin', function (res) {
         callback(res);
       });
+    };
+
+    ext.markersDetected = function (markerCount) {
+      if(markersQueue.length >= markerCount) {
+        commandQueue = markersQueue.splice(0, markerCount);
+        markersQueue = [];
+        return true;
+      }
+      return false;
+    };
+
+    ext.getBlock1Position = function () {
+      return motorPositions[0];
+    }
+
+    ext.getBlock2Position = function () {
+      return motorPositions[1];
+    }
+
+    ext.getBlock3Position = function () {
+      return motorPositions[2];
+    }
+
+    ext.getBlock4Position = function () {
+      return motorPositions[3];
+    }
+
+    ext.getBlock5Position = function () {
+      return motorPositions[4];
+    }
+
+    ext.getBlock6Position = function () {
+      return motorPositions[5];
     }
 
     // Cleanup function when the extension is unloaded
-    ext._shutdown = function() {};
+    ext._shutdown = function() {
+      if(updateInterval != undefined) {
+        clearInterval(updateInterval);
+      }
+    };
 
     // Status reporting code
     // Use this to report missing hardware, plugin or unsupported browser
@@ -269,7 +374,7 @@
     // Block and block menu descriptions
     var descriptor = {
         blocks: [
-          ['w', 'Call Ergo Jr. at %s', 'connectErgo', 'http://localhost:6969/'],
+          ['w', 'Call Ergo Jr. at %s', 'connectErgo', 'http://18.85.58.226:6969/'],
           ['w', 'Turn blocks %s to %n position in %n seconds', 'turnBy'],
           ['w', 'Turn %m.motorDirection', 'turnTo', 'Left'],
           ['w', 'Set light of blocks %s to %m.lights', 'setLED', '', 'off'],
@@ -281,7 +386,14 @@
           ['w', '%m.markerDetection tracking', 'setMarkerDetection', 'start'],
           ['R', 'Caribou', 'isCaribou'],
           ['R', 'Lapin', 'isLapin'],
-          ['R', 'Tetris', 'isTetris']
+          ['R', 'Tetris', 'isTetris'],
+          ['h', 'When %n markers detected', 'markersDetected'],
+          ['r', 'block 1', 'getBlock1Position'],
+          ['r', 'block 2', 'getBlock2Position'],
+          ['r', 'block 3', 'getBlock3Position'],
+          ['r', 'block 4', 'getBlock4Position'],
+          ['r', 'block 5', 'getBlock5Position'],
+          ['r', 'block 6', 'getBlock6Position']
         ],
         menus: {
           motorDirection: ['Left', 'Right', 'Front', 'Back'],
