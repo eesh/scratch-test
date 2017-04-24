@@ -42,6 +42,8 @@
 
     function addMarkersToQueue(markers) {
       markersQueue = markersQueue.concat(markers);
+      console.log(markersQueue, commandQueue);
+
     }
 
     function getMarkers() {
