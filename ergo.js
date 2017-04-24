@@ -118,7 +118,7 @@
         if(e.length > 0) {
           connected = true;
           getMotorsList(callback);
-          updateInterval = setInterval(update, 1000);
+          updateInterval = setInterval(update, 2000);
         } else {
           connected = false;
           callback();
