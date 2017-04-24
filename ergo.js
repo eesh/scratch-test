@@ -317,7 +317,9 @@
 
     ext.markersDetected = function (markerCount) {
       if(markersQueue.length >= markerCount) {
+        console.log(markersQueue.length);
         commandQueue = markersQueue.splice(0, markerCount);
+        console.log(markersQueue.length);
         markersQueue = [];
         console.log(commandQueue);
         return true;
