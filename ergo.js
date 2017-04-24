@@ -42,6 +42,7 @@
 
     function addMarkersToQueue(markers) {
       markersQueue.concat(markers);
+      console.log(markersQueue);
     }
 
     function getMarkers() {
@@ -49,7 +50,6 @@
         sendRequest(detectURL.slice(0,-1), null, function (response) {
           if(response != "False") {
             addMarkersToQueue(response.split(' '));
-            console.log(markersQueue);
           }
         });
       }
