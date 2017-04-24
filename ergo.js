@@ -42,7 +42,6 @@
 
     function addMarkersToQueue(markers) {
       markersQueue = markersQueue.concat(markers);
-      console.log(markersQueue);
     }
 
     function getMarkers() {
@@ -334,6 +333,10 @@
       return false;
     };
 
+    ext.getMarkersQueue = function() {
+      return markersQueue;
+    }
+
     ext.getBlock1Position = function () {
       return motorPositions[0];
     }
@@ -400,6 +403,7 @@
           ['R', 'Lapin', 'isLapin'],
           ['R', 'Tetris', 'isTetris'],
           ['h', 'When %n markers detected', 'markersDetected'],
+          ['r', 'markers', 'getMarkersQueue'],
           ['r', 'block 1', 'getBlock1Position'],
           ['r', 'block 2', 'getBlock2Position'],
           ['r', 'block 3', 'getBlock3Position'],
