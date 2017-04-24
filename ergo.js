@@ -43,9 +43,9 @@
     function getMarkers() {
       if(detectionMode) {
         sendRequest(detectURL.slice(0,-1), null, function (response) {
+          console.log(response);
           if(response != "False") {
             markersQueue.concat(response.split(' '));
-            console.log(markersQueue);
           }
         });
       }
@@ -296,7 +296,7 @@
       if(toggle == 'start') {
         detectionMode = true;
       } else {
-        detectURL = false
+        detectURL = false;
       }
     };
 
