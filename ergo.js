@@ -420,7 +420,7 @@
           ['h', 'When %n markers detected', 'markersDetected'],
           ['r', 'markers', 'getMarkersQueue'],
           ['r', 'item %n of markers', 'getItemFromMarkerQueue', 1],
-          ['r', 'length of markers', 'getLengthOfMarkerQueue']
+          ['r', 'length of markers', 'getLengthOfMarkerQueue'],
           ['r', 'block 1', 'getBlock1Position'],
           ['r', 'block 2', 'getBlock2Position'],
           ['r', 'block 3', 'getBlock3Position'],
