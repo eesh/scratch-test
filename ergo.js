@@ -44,6 +44,7 @@
       if(detectionMode) {
         sendRequest(detectURL.slice(0,-1), null, function (response) {
           if(response != "False") {
+            console.log(response, "split", response.split(' '));
             markersQueue.concat(response.split(' '));
             console.log(markersQueue);
           }
