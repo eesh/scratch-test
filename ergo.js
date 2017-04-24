@@ -338,11 +338,8 @@
     };
 
     ext.getItemFromMarkerQueue = function(index) {
-      if(index == 'last') {
-        return markersQueue[markersQueue.length-1];
-      } else {
-        index = parseInt(index);
         if(index > 0 && index <= markersQueue.length) {
+          console.log(markersQueue[index-1]);
           return markersQueue[index-1];
         }
       }
