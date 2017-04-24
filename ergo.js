@@ -45,7 +45,7 @@
         sendRequest(detectURL.slice(0,-1), null, function (response) {
           if(response != "False") {
             markersQueue.concat(response.split(' '));
-            console.log(markersQueue)
+            console.log(markersQueue);
           }
         });
       }
