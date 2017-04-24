@@ -40,12 +40,15 @@
       });
     }
 
+    function addMarkersToQueue(markers) {
+      markersQueue.concat(markers);
+    }
+
     function getMarkers() {
       if(detectionMode) {
         sendRequest(detectURL.slice(0,-1), null, function (response) {
           if(response != "False") {
-            console.log(response, "split", response.split(' '));
-            markersQueue.concat(response.split(' '));
+            addMarkersToQueue(response.split(' '));
             console.log(markersQueue);
           }
         });
