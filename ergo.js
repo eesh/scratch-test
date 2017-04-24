@@ -342,8 +342,8 @@
         return markersQueue[markersQueue.length-1];
       } else {
         index = parseInt(index);
-        if(index >= 0 && index < markersQueue.length) {
-          return markersQueue[index];
+        if(index > 0 && index <= markersQueue.length) {
+          return markersQueue[index-1];
         }
       }
     };
