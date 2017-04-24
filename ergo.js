@@ -338,6 +338,7 @@
     };
 
     ext.getItemFromMarkerQueue = function(index) {
+      console.log(index);
       if(index > 0 && index <= markersQueue.length) {
         console.log(markersQueue[index-1]);
         return markersQueue[index-1];
@@ -415,7 +416,7 @@
           ['R', 'Tetris', 'isTetris'],
           ['h', 'When %n markers detected', 'markersDetected'],
           ['r', 'markers', 'getMarkersQueue'],
-          ['r', 'item %n of markers', 'getItemFromMarkerQueue', 1],
+          ['r', 'item %n of markers', 'getItemFromMarkerQueue'],
           ['r', 'length of markers', 'getLengthOfMarkerQueue'],
           ['r', 'block 1', 'getBlock1Position'],
           ['r', 'block 2', 'getBlock2Position'],
