@@ -40,7 +40,7 @@
 
       app.inputs.search({
         concept: {
-          name: 'dog'
+          name: 'robot'
         }
       }).then(
         function(response) {
