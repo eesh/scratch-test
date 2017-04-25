@@ -21,6 +21,7 @@
 
 
     $.getScript('https://eesh.github.io/scratch-test/digit_recognition.js', checkDigitRecognitionLibrary);
+    $.getScript('https://eesh.github.io/scratch-test/clarifai.js', checkClarifai);
 
     function checkDigitRecognitionLibrary() {
       if (math == undefined) {
@@ -28,6 +29,14 @@
       } else {
         console.log("digit_recognition.js loaded.");
       }
+    }
+
+
+    function checkClarifai() {
+      var app = new Clarifai.App(
+        'vKCXoGNBI9RrFYs33BUxcDOB3WoMJ5rK9D0hSD4J',
+        'cva5xoSvMf_htwZZHIZ_9JhjThL8N0BX_PqaJPUj'
+      );
     }
 
 
@@ -97,7 +106,7 @@
       movePlayerURL = hostURL + "primitive/MovePlayer/";
       primitivesURL = hostURL + "primitive/"
       detectURL = hostURL + "detect/";
-      imageURL = hostURL + "/sensor/camera/";
+      imageURL = hostURL + "/camera/image";
     }
 
     function sendRequest(requestURL, params, callback) {
