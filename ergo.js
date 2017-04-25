@@ -38,28 +38,18 @@
         'cva5xoSvMf_htwZZHIZ_9JhjThL8N0BX_PqaJPUj'
       );
 
-      app.inputs.create('https://samples.clarifai.com/puppy.jpeg').then(
-        searchForDog,
-        function(err) {
-          console.error(err);
+      app.inputs.search({
+        concept: {
+          name: 'dog'
+        }
+      }).then(
+        function(response) {
+          console.log(response);
+        },
+        function(response) {
+          console.error(response);
         }
       );
-
-      // search for concepts
-      function searchForDog(response) {
-        app.inputs.search({
-          concept: {
-            name: 'dog'
-          }
-        }).then(
-          function(response) {
-            console.log(response);
-          },
-          function(response) {
-            console.error(response);
-          }
-        );
-      }
     }
 
 
