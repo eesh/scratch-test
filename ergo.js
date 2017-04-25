@@ -49,7 +49,7 @@
       function searchForDog(response) {
         app.inputs.search({
           concept: {
-            name: 'jdhfu'
+            name: 'robot'
           }
         }).then(
           function(response) {
