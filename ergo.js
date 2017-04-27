@@ -33,6 +33,7 @@
 
 
     function checkClarifai() {
+      /*
       var app = new Clarifai.App(
         'vKCXoGNBI9RrFYs33BUxcDOB3WoMJ5rK9D0hSD4J',
         'cva5xoSvMf_htwZZHIZ_9JhjThL8N0BX_PqaJPUj'
@@ -49,7 +50,7 @@
         function(response) {
           console.error(response);
         }
-      );
+      );*/
     }
 
 
