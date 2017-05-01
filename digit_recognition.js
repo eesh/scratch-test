@@ -29,7 +29,7 @@ function initNeuralNet() {
 }
 
 function getDigit(imageData, callback) {
-  //push change
+  
   function testImage(img) {
     imageElement = new Image();
     imageElement.onload = function() {
