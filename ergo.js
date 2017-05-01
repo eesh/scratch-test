@@ -10,7 +10,7 @@
     let movePlayerURL = hostURL + "primitive/MovePlayer/";
     let primitivesURL = hostURL + "primitive/";
     let detectURL = hostURL + "detect/";
-    let imageURL = hostURL + "/camera/";
+    let imageURL = hostURL + "camera/";
     let connected = false;
     let motors = [];
     let markersQueue = [];
