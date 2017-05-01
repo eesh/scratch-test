@@ -20,16 +20,16 @@
     let updateInterval = undefined;
 
 
-    $.getScript('https://eesh.github.io/scratch-test/digit_recognition.js', checkDigitRecognitionLibrary);
+    $.getScript('https://eesh.github.io/scratch-test/digit_recognition.js');
     $.getScript('https://eesh.github.io/scratch-test/clarifai.js', checkClarifai);
 
-    function checkDigitRecognitionLibrary() {
-      if (neuralnet == undefined) {
-        console.log("digit_recognition.js is not loaded");
-      } else {
-        console.log("digit_recognition.js loaded.");
-      }
-    }
+    // function checkDigitRecognitionLibrary() {
+    //   if (neuralnet == undefined) {
+    //     console.log("digit_recognition.js is not loaded");
+    //   } else {
+    //     console.log("digit_recognition.js loaded.");
+    //   }
+    // }
 
 
     function checkClarifai() {

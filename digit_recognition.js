@@ -6,15 +6,16 @@
 
 var neuralnet = undefined;
 
+$.getScript('https://eesh.github.io/scratch-test/digit_recognition.js', initNeuralNet);
+
 function initNeuralNet() {
   if(neuralnet == undefined) {
     var json = JSON.parse(getJson());
     neuralnet = new convnetjs.Net();
     neuralnet.fromJSON(json);
+    console.log("digit_recognition.js loaded");
   }
 }
-
-initNeuralNet();
 
 function getDigit(imageData, callback) {
 
