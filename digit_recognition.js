@@ -30,6 +30,7 @@ function getDigit(imageData, callback) {
   function testImage(img) {
     imageElement = document.createElement("img");
     imageElement.src = img;
+    console.log(img)
     var x = convnetjs.img_to_vol(imageElement);
     var out_p = neuralnet.forward(x);
 
@@ -39,7 +40,7 @@ function getDigit(imageData, callback) {
     }
     preds.sort(function(a,b){return a.p<b.p ? 1:-1;});
     console.log(preds);
-    callback(preds[0]);
+    callback(preds[0].k);
   }
 
   function doResize(data) {
