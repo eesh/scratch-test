@@ -120,7 +120,7 @@
       movePlayerURL = hostURL + "primitive/MovePlayer/";
       primitivesURL = hostURL + "primitive/"
       detectURL = hostURL + "detect/";
-      imageURL = hostURL + "camera/image";
+      imageURL = hostURL + "camera/";
     }
 
     function sendRequest(requestURL, params, callback) {
