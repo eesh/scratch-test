@@ -19,15 +19,11 @@ function checkPicaLoaded() {
 
 function initNeuralNet() {
   if(neuralnet == undefined) {
-    trainer.learning_rate = 0.0001;
-    trainer.momentum = 0.9;
-    trainer.batch_size = 2;
-    trainer.l2_decay = 0.00001;
     var json = JSON.parse(getJson());
     console.log(json);
     neuralnet = new convnetjs.Net();
     neuralnet.fromJSON(json);
-    trainer = new convnetjs.SGDTrainer(neuralnet, {learning_rate:trainer.learning_rate, momentum:trainer.momentum, batch_size:trainer.batch_size, l2_decay:trainer.l2_decay});
+    trainer = new convnetjs.SGDTrainer(neuralnet, {learning_rate: 0.0001, momentum: 0.9, batch_size: 2, l2_decay: 0.00001});
     console.log("digit_recognition.js loaded");
   }
 }
