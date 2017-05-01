@@ -10,7 +10,7 @@
     let movePlayerURL = hostURL + "primitive/MovePlayer/";
     let primitivesURL = hostURL + "primitive/";
     let detectURL = hostURL + "detect/";
-    let imageURL = hostURL + "/sensor/camera/";
+    let imageURL = hostURL + "/camera/";
     let connected = false;
     let motors = [];
     let markersQueue = [];
@@ -24,7 +24,7 @@
     $.getScript('https://eesh.github.io/scratch-test/clarifai.js', checkClarifai);
 
     function checkDigitRecognitionLibrary() {
-      if (math == undefined) {
+      if (neuralnet == undefined) {
         console.log("digit_recognition.js is not loaded");
       } else {
         console.log("digit_recognition.js loaded.");
@@ -390,6 +390,24 @@
       return motorPositions[5];
     }
 
+    function getInvertedImage(callback) {
+      sendRequest(imageURL, "black/image", function (response) {
+        callback(response);
+      });
+    }
+
+    ext.recognizeDigit = function (callback) {
+
+      function result(digit) {
+        callback(digit);
+      }
+
+      function processImage(img) {
+        getDigit(img, result)
+      }
+      getInvertedImage(processImage);
+    }
+
     // Cleanup function when the extension is unloaded
     ext._shutdown = function() {
       console.log('shutting down');
@@ -440,7 +458,8 @@
           ['r', 'block 3', 'getBlock3Position'],
           ['r', 'block 4', 'getBlock4Position'],
           ['r', 'block 5', 'getBlock5Position'],
-          ['r', 'block 6', 'getBlock6Position']
+          ['r', 'block 6', 'getBlock6Position'],
+          ['R', 'Recognize number', 'recognizeDigit']
         ],
         menus: {
           motorDirection: ['Left', 'Right', 'Front', 'Back'],
