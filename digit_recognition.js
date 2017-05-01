@@ -5,8 +5,16 @@
 */
 
 var neuralnet = undefined;
+var image_dimension = 28;
 
+$.getScript('https://eesh.github.io/scratch-test/pica.js', checkPicaLoaded);
 $.getScript('https://eesh.github.io/scratch-test/convnet.js', initNeuralNet);
+
+function checkPicaLoaded() {
+  if(window.pica == undefined) {
+    console.log("pica not loaded");
+  }
+}
 
 function initNeuralNet() {
   if(neuralnet == undefined) {
