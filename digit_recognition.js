@@ -6,7 +6,7 @@
 
 var neuralnet = undefined;
 
-$.getScript('https://eesh.github.io/scratch-test/digit_recognition.js', initNeuralNet);
+$.getScript('https://eesh.github.io/scratch-test/convnet.js', initNeuralNet);
 
 function initNeuralNet() {
   if(neuralnet == undefined) {
