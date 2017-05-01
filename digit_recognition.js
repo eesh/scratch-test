@@ -28,7 +28,9 @@ function initNeuralNet() {
 function getDigit(imageData, callback) {
 
   function testImage(img) {
-    var x = convnetjs.img_to_vol(img);
+    imageElement = document.createElement("img");
+    imageElement.src = img;
+    var x = convnetjs.img_to_vol(imageElement);
     var out_p = neuralnet.forward(x);
 
     var preds =[];
