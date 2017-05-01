@@ -31,21 +31,21 @@ function initNeuralNet() {
 function getDigit(imageData, callback) {
   //push change
   function testImage(img) {
-    imageElement = document.createElement("img");
-    imageElement.src = img;
-    console.log(img);
-    console.log(neuralnet.toJSON());
-    var x = convnetjs.img_to_vol(imageElement);
-    console.log(x);
-    var out_p = neuralnet.forward(x);
+    imageElement = new Image();
+    imageElement.onload = function() {
+      var x = convnetjs.img_to_vol(imageElement);
+      console.log(x);
+      var out_p = neuralnet.forward(x);
 
-    var preds =[];
-    for(var k=0;k<out_p.w.length;k++) {
-      preds.push({k:k,p:out_p.w[k]});
+      var preds =[];
+      for(var k=0;k<out_p.w.length;k++) {
+        preds.push({k:k,p:out_p.w[k]});
+      }
+      preds.sort(function(a,b){return a.p<b.p ? 1:-1;});
+      console.log(preds);
+      callback(preds[0].k);
     }
-    preds.sort(function(a,b){return a.p<b.p ? 1:-1;});
-    console.log(preds);
-    callback(preds[0].k);
+    imageElement.src = img;
   }
 
   function doResize(data) {
@@ -6451,5 +6451,5 @@ function getJson() {
             "num_inputs":10
         }
     ]
-};
+  };
 }
