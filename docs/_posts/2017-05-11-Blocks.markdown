@@ -218,6 +218,7 @@ The ergo Scratch extension has a number of blocks that allow you to control the 
 [set-lights-img]: {{ site.url }}/assets/images/set-lights.png
 [stop-record-img]: {{ site.url }}/assets/images/stop-record.png
 [track-img]: {{ site.url }}/assets/images/track.png
+[get-marker-img]: {{ site.url }}/assets/images/get-marker.png
 
 <style type="text/css">
     .post-image{
