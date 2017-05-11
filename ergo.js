@@ -408,6 +408,12 @@
       getInvertedImage(processImage);
     }
 
+    ext.getColorImage = function (callback) {
+      sendRequest(imageURL, "/image", function (response) {
+        callback(response);
+      });
+    }
+
     // Cleanup function when the extension is unloaded
     ext._shutdown = function() {
       console.log('shutting down');
@@ -459,7 +465,8 @@
           ['r', 'block 4', 'getBlock4Position'],
           ['r', 'block 5', 'getBlock5Position'],
           ['r', 'block 6', 'getBlock6Position'],
-          ['R', 'Recognize number', 'recognizeDigit']
+          ['R', 'Recognize number', 'recognizeDigit'],
+          ['R', 'Get color image', 'getColorImage']
         ],
         menus: {
           motorDirection: ['Left', 'Right', 'Front', 'Back'],
