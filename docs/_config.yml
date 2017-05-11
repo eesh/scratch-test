@@ -19,7 +19,7 @@ description: >
   This extension lets you control a Poppy Ergo Jr. robot using Scratch. Poppy Ergo Jr.
   is an open-source robot kit developed by Inria, France. More information regarding the
   robot can be found at https://poppy-project.org.
-baseurl: "" # the subpath of your site, e.g. /blog
+baseurl: "/scratch-test" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: eeshlikhith
 github_username:  eesh
