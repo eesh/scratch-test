@@ -203,22 +203,22 @@ The ergo Scratch extension has a number of blocks that allow you to control the 
 
   Note: In order to use any camera related feature such as this one, be sure to enable the camera on the robot from its configuration panel.
 
-[connect-img]: {{ site.url }}/assets/images/connect.png
-[turn-img]: {{ site.url }}/assets/images/turn.png
-[turnto-img]: {{ site.url }}/assets/images/turn-to.png
-[block-positions-img]: {{ site.url }}/assets/images/block-positions.png
-[color-image-img]: {{ site.url }}/assets/images/color-image.png
-[dance-img]: {{ site.url }}/assets/images/dance.png
-[markers-hat-img]: {{ site.url }}/assets/images/markers-hat.png
-[markers-length-img]: {{ site.url }}/assets/images/markers-length.png
-[number-img]: {{ site.url }}/assets/images/number.png
-[play-record-img]: {{ site.url }}/assets/images/play-record.png
-[posture-img]: {{ site.url }}/assets/images/posture.png
-[record-img]: {{ site.url }}/assets/images/record.png
-[set-lights-img]: {{ site.url }}/assets/images/set-lights.png
-[stop-record-img]: {{ site.url }}/assets/images/stop-record.png
-[track-img]: {{ site.url }}/assets/images/track.png
-[get-marker-img]: {{ site.url }}/assets/images/get-marker.png
+[connect-img]: {{ site.url }}/scratch-test/assets/images/connect.png
+[turn-img]: {{ site.url }}/scratch-test/assets/images/turn.png
+[turnto-img]: {{ site.url }}/scratch-test/assets/images/turn-to.png
+[block-positions-img]: {{ site.url }}/scratch-test/assets/images/block-positions.png
+[color-image-img]: {{ site.url }}/scratch-test/assets/images/color-image.png
+[dance-img]: {{ site.url }}/scratch-test/assets/images/dance.png
+[markers-hat-img]: {{ site.url }}/scratch-test/assets/images/markers-hat.png
+[markers-length-img]: {{ site.url }}/scratch-test/assets/images/markers-length.png
+[number-img]: {{ site.url }}/scratch-test/assets/images/number.png
+[play-record-img]: {{ site.url }}/scratch-test/assets/images/play-record.png
+[posture-img]: {{ site.url }}/scratch-test/assets/images/posture.png
+[record-img]: {{ site.url }}/scratch-test/assets/images/record.png
+[set-lights-img]: {{ site.url }}/scratch-test/assets/images/set-lights.png
+[stop-record-img]: {{ site.url }}/scratch-test/assets/images/stop-record.png
+[track-img]: {{ site.url }}/scratch-test/assets/images/track.png
+[get-marker-img]: {{ site.url }}/scratch-test/assets/images/get-marker.png
 
 <style type="text/css">
     .post-image{
