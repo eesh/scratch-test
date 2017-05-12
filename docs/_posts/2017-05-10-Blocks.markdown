@@ -1,0 +1,238 @@
+---
+layout: post
+title:  "Blocks"
+categories: jekyll update
+---
+
+The ergo Scratch extension has a number of blocks that allow you to control the movement, record moves, and activate/deactivate different abilities of the robot.
+
+<br>
+
+<h3>
+  Connect block
+</h3>
+
+![Connect block][connect-img]{: .post-image}
+
+**Input:** IP address of the robot
+
+**Description:** Connects to the Ergo Jr. at the given IP address. The status light in Scratch turns green if connection is successful.
+
+<br>
+
+<h3>
+  Movement blocks
+</h3>
+
+
+* <h4>
+    Turn robot
+  </h4>
+
+  ![Turn robot block][turn-img]{: .post-image}
+
+  **Input:** Left, Front, Right, Back
+
+  **Description:** Sets all the robot blocks to position 0 for front position. Sets block m0 to 90 or -90 for Left and Right respectively. Sets blocks m1 and m2 to position -90 and block m0 to position 0.
+
+* <h4>
+    Turn blocks to position
+  </h4>
+
+  ![Turn blocks][turnto-img]{: .post-image}
+
+  **Input:** Motors (m1, m2, ... m6), Position (-90 .. 90), time (in seconds)
+
+  **Description:** Sets the motors to specific positions in a certain time (speed 0 turns the robot as quickly as possible).
+
+  Note: Motors have to be separated by space if specifying multiple motors.
+
+* <h4>
+    Position reporter blocks
+  </h4>
+
+  ![Position reporter blocks][block-positions-img]{: .post-image}
+
+  **Input:** None
+
+  **Description:** Show the current position of the block. Useful when programmatically setting positions.
+
+
+* <h4>
+    Set posture
+  </h4>
+
+  ![Posture block][posture-img]{: .post-image}
+
+  **Input:** Base, Tetris, Rest, or Curious
+
+  **Description:** Positions the robot in the specified posture.
+
+* <h4>
+    Dance
+  </h4>
+
+  ![Dance block][dance-img]{: .post-image}
+
+  **Input:** Start or Stop
+
+  **Description:** Starts or stops playing the dance primitive of the robot.
+
+
+<br>
+
+<h3>
+  Record blocks
+</h3>
+
+* <h4>
+    Start a recording
+  </h4>
+
+  ![Start recording][record-img]{: .post-image}
+
+  **Inputs:** Motors (m1 .. m6), recording name
+
+  **Description:** Starts recording the movements of the given blocks with the specified recording name.
+
+  The recording is saved locally on the Raspberry Pi as a JSON file.
+
+  Note: Motors have to be separated by space if specifying multiple motors.
+
+* <h4>
+    Stop a recording
+  </h4>
+
+  ![Stop recording][stop-record-img]{: .post-image}
+
+  **Input:** Recording name
+
+  **Description:** Stop specified recording.
+
+  **Note**: You should not start two different recording sessions at the same time.
+
+* <h4>
+    Play a recording
+  </h4>
+
+  ![Play recording][play-record-img]{: .post-image}
+
+  **Input:** Recording name
+
+  **Description:** Plays a previously recorded movement if it exists.
+
+
+<br>
+
+<h3>
+  Marker detection
+</h3>
+
+* <h4>
+    Start or stop marker detection
+  </h4>
+
+  ![Tracking block][track-img]{: .post-image}
+
+  **Input:** Start or stop
+
+  **Description:** Activates or deactivates marker detection mode. Markers are Simple Hamming codes that can be generated using hampy library.
+
+  Note: In order to use any camera related feature such as this one, be sure to enable the camera on the robot from its configuration panel.
+
+* <h4>
+    Length of detected markers
+  </h4>
+
+  ![detected markers][markers-length-img]{: .post-image}
+
+  **Input:** None
+
+  **Description:** Returns the number of markers it has detected.
+
+* <h4>
+    Get marker from markers
+  </h4>
+
+  ![Get marker][get-marker-img]{: .post-image}
+
+  **Input:** Index position starting from 1 to n.
+
+  **Description:** Gets the marker at specified index position from the detected markers list.
+
+* <h4>
+    When n markers detected
+  </h4>
+
+  ![When markers detected][markers-hat-img]{: .post-image}
+
+  **Input:** Number of markers to detect before firing
+
+  **Description:** Executes the hat block when specified number of markers have been detected.
+
+<br>
+
+<h3>
+  Miscellaneous blocks
+</h3>
+
+* <h4>
+    Set block lights
+  </h4>
+
+  ![Set lights][set-lights-img]{: .post-image}
+
+  **Input:** Motors (m1 .. m6), color
+
+  **Description:** Sets the lights of the specified motors to specified color.
+
+  Note: Motors have to be separated by space if specifying multiple motors.
+
+* <h4>
+    Get recognized number
+  </h4>
+
+  ![Recognize number][number-img]{: .post-image}
+
+  **Input:** None
+
+  **Description:** Tries to recognize a number from the camera
+
+  Note: In order to use any camera related feature such as this one, be sure to enable the camera on the robot from its configuration panel.
+
+  For best results, draw a number on a white sheet with a dark color and thick lines/curves.
+
+* <h4>
+    Get color image
+  </h4>
+
+  ![Get image][color-image-img]{: .post-image}
+
+  **Input:** None
+
+  **Description:** Returns the base64 encoded string of the camera capture.
+
+  Note: In order to use any camera related feature such as this one, be sure to enable the camera on the robot from its configuration panel.
+
+[connect-img]: {{ site.url }}/scratch-test/assets/images/connect.png
+[turn-img]: {{ site.url }}/scratch-test/assets/images/turn.png
+[turnto-img]: {{ site.url }}/scratch-test/assets/images/turn-to.png
+[block-positions-img]: {{ site.url }}/scratch-test/assets/images/block-positions.png
+[color-image-img]: {{ site.url }}/scratch-test/assets/images/color-image.png
+[dance-img]: {{ site.url }}/scratch-test/assets/images/dance.png
+[markers-hat-img]: {{ site.url }}/scratch-test/assets/images/markers-hat.png
+[markers-length-img]: {{ site.url }}/scratch-test/assets/images/markers-length.png
+[number-img]: {{ site.url }}/scratch-test/assets/images/number.png
+[play-record-img]: {{ site.url }}/scratch-test/assets/images/play-record.png
+[posture-img]: {{ site.url }}/scratch-test/assets/images/posture.png
+[record-img]: {{ site.url }}/scratch-test/assets/images/record.png
+[set-lights-img]: {{ site.url }}/scratch-test/assets/images/set-lights.png
+[stop-record-img]: {{ site.url }}/scratch-test/assets/images/stop-record.png
+[track-img]: {{ site.url }}/scratch-test/assets/images/track.png
+[get-marker-img]: {{ site.url }}/scratch-test/assets/images/get-marker.png
+
+<style type="text/css">
+    .post-image{
+        height: 48px;
+    }
+</style>
