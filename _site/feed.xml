@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="http://localhost:4000/scratch-test/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/scratch-test/" rel="alternate" type="text/html" /><updated>2017-05-11T20:02:51-04:00</updated><id>http://localhost:4000/scratch-test/</id><title type="html">Poppy Ergo Jr</title><subtitle>This extension lets you control a Poppy Ergo Jr. robot using Scratch. Poppy Ergo Jr. is an open-source robot kit developed by Inria, France. More information regarding the robot can be found at https://poppy-project.org.
+</subtitle><entry><title type="html">Setup</title><link href="http://localhost:4000/scratch-test/jekyll/update/2017/05/11/Setup.html" rel="alternate" type="text/html" title="Setup" /><published>2017-05-11T00:00:00-04:00</published><updated>2017-05-11T00:00:00-04:00</updated><id>http://localhost:4000/scratch-test/jekyll/update/2017/05/11/Setup</id><content type="html" xml:base="http://localhost:4000/scratch-test/jekyll/update/2017/05/11/Setup.html">&lt;h1 id=&quot;basic-set-up&quot;&gt;Basic set up&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;To assemble and set up the Raspberry Pi, follow the instructions for the Poppy Ergo Jr. from https://docs.poppy-project.org/en/. Be sure to install the 2.0 image file for the Ergo Jr. (https://github.com/poppy-project/poppy-ergo-jr/releases/tag/2.0.0)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;You may not be able to reach the poppy control panel using poppy.local. You can instead, access the control panel by entering the IP address of the robot directly into the address bar of your preferred web browser.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;enabling-bash-commands&quot;&gt;Enabling bash commands&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;From the control panel, goto Jupyter page. From the Jupyter page, click &lt;strong&gt;New&lt;/strong&gt; -&amp;gt; &lt;strong&gt;Terminal&lt;/strong&gt;.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;In the terminal, enter the following command:
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$PATH&lt;/span&gt;:/bin:/usr/bin
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Now you should be able to use some common commands like &lt;strong&gt;sudo&lt;/strong&gt;, &lt;strong&gt;git&lt;/strong&gt;, etc.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;getting-the-modified-server-file&quot;&gt;Getting the modified server file&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;To enable some of the custom features provided by the extension, we need to replace the server file located at
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;~/dev/server/snap.py
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Enter the following command in the terminal to clone the git repository that contains the modified &lt;strong&gt;snap.py&lt;/strong&gt; file.
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git clone https://github.com/eesh/HammingGeneratorServer.git
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;replacing-the-server-file-with-the-modified-server-file&quot;&gt;Replacing the server file with the modified server file&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Copy the &lt;em&gt;snap.py&lt;/em&gt; file in the HammingGeneratorServer folder into the server folder. To do this, enter the following command:
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mv HammingGeneratorServer/snap.py ~/dev/server/
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;reboot-the-robot&quot;&gt;Reboot the robot&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;For the new server features to be available, restart the robot either by unplugging and replugging the Ergo Jr. power cord or by going to the control panel and clicking selecting reboot.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;generating-new-markers&quot;&gt;Generating new Markers&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;To generate new markers, go to the terminal, and enter the following command:
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;python HammingGeneratorServer/HammingGeneratorServer.py
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Now go to http://ipaddress:5000/generator to generate Markers.&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">Basic set up</summary></entry><entry><title type="html">Blocks</title><link href="http://localhost:4000/scratch-test/jekyll/update/2017/05/10/Blocks.html" rel="alternate" type="text/html" title="Blocks" /><published>2017-05-10T00:00:00-04:00</published><updated>2017-05-10T00:00:00-04:00</updated><id>http://localhost:4000/scratch-test/jekyll/update/2017/05/10/Blocks</id><content type="html" xml:base="http://localhost:4000/scratch-test/jekyll/update/2017/05/10/Blocks.html">&lt;p&gt;The ergo Scratch extension has a number of blocks that allow you to control the movement, record moves, and activate/deactivate different abilities of the robot.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3&gt;
+  Connect block
+&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/scratch-test/assets/images/connect.png&quot; alt=&quot;Connect block&quot; class=&quot;post-image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; IP address of the robot&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Description:&lt;/strong&gt; Connects to the Ergo Jr. at the given IP address. The status light in Scratch turns green if connection is successful.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3&gt;
+  Movement blocks
+&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;h4&gt;
+  Turn robot
+&lt;/h4&gt;
+
+    &lt;p&gt;&lt;img src=&quot;http://localhost:4000/scratch-test/assets/images/turn.png&quot; alt=&quot;Turn robot block&quot; class=&quot;post-image&quot; /&gt;&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; Left, Front, Right, Back&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;Description:&lt;/strong&gt; Sets all the robot blocks to position 0 for front position. Sets block m0 to 90 or -90 for Left and Right respectively. Sets blocks m1 and m2 to position -90 and block m0 to position 0.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;h4&gt;
+  Turn blocks to position
+&lt;/h4&gt;
+
+    &lt;p&gt;&lt;img src=&quot;http://localhost:4000/scratch-test/assets/images/turn-to.png&quot; alt=&quot;Turn blocks&quot; class=&quot;post-image&quot; /&gt;&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; Motors (m1, m2, … m6), Position (-90 .. 90), time (in seconds)&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;Description:&lt;/strong&gt; Sets the motors to specific positions in a certain time (speed 0 turns the robot as quickly as possible).&lt;/p&gt;
+
+    &lt;p&gt;Note: Motors have to be separated by space if specifying multiple motors.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;h4&gt;
+  Position reporter blocks
+&lt;/h4&gt;
+
+    &lt;p&gt;&lt;img src=&quot;http://localhost:4000/scratch-test/assets/images/block-positions.png&quot; alt=&quot;Position reporter blocks&quot; class=&quot;post-image&quot; /&gt;&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; None&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;Description:&lt;/strong&gt; Show the current position of the block. Useful when programmatically setting positions.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;h4&gt;
+  Set posture
+&lt;/h4&gt;
+
+    &lt;p&gt;&lt;img src=&quot;http://localhost:4000/scratch-test/assets/images/posture.png&quot; alt=&quot;Posture block&quot; class=&quot;post-image&quot; /&gt;&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; Base, Tetris, Rest, or Curious&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;Description:&lt;/strong&gt; Positions the robot in the specified posture.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;h4&gt;
+  Dance
+&lt;/h4&gt;
+
+    &lt;p&gt;&lt;img src=&quot;http://localhost:4000/scratch-test/assets/images/dance.png&quot; alt=&quot;Dance block&quot; class=&quot;post-image&quot; /&gt;&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; Start or Stop&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;Description:&lt;/strong&gt; Starts or stops playing the dance primitive of the robot.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3&gt;
+  Record blocks
+&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;h4&gt;
+  Start a recording
+&lt;/h4&gt;
+
+    &lt;p&gt;&lt;img src=&quot;http://localhost:4000/scratch-test/assets/images/record.png&quot; alt=&quot;Start recording&quot; class=&quot;post-image&quot; /&gt;&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;Inputs:&lt;/strong&gt; Motors (m1 .. m6), recording name&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;Description:&lt;/strong&gt; Starts recording the movements of the given blocks with the specified recording name.&lt;/p&gt;
+
+    &lt;p&gt;The recording is saved locally on the Raspberry Pi as a JSON file.&lt;/p&gt;
+
+    &lt;p&gt;Note: Motors have to be separated by space if specifying multiple motors.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;h4&gt;
+  Stop a recording
+&lt;/h4&gt;
+
+    &lt;p&gt;&lt;img src=&quot;http://localhost:4000/scratch-test/assets/images/stop-record.png&quot; alt=&quot;Stop recording&quot; class=&quot;post-image&quot; /&gt;&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; Recording name&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;Description:&lt;/strong&gt; Stop specified recording.&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;: You should not start two different recording sessions at the same time.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;h4&gt;
+  Play a recording
+&lt;/h4&gt;
+
+    &lt;p&gt;&lt;img src=&quot;http://localhost:4000/scratch-test/assets/images/play-record.png&quot; alt=&quot;Play recording&quot; class=&quot;post-image&quot; /&gt;&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; Recording name&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;Description:&lt;/strong&gt; Plays a previously recorded movement if it exists.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3&gt;
+  Marker detection
+&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;h4&gt;
+  Start or stop marker detection
+&lt;/h4&gt;
+
+    &lt;p&gt;&lt;img src=&quot;http://localhost:4000/scratch-test/assets/images/track.png&quot; alt=&quot;Tracking block&quot; class=&quot;post-image&quot; /&gt;&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; Start or stop&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;Description:&lt;/strong&gt; Activates or deactivates marker detection mode. Markers are Simple Hamming codes that can be generated using hampy library.&lt;/p&gt;
+
+    &lt;p&gt;Note: In order to use any camera related feature such as this one, be sure to enable the camera on the robot from its configuration panel.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;h4&gt;
+  Length of detected markers
+&lt;/h4&gt;
+
+    &lt;p&gt;&lt;img src=&quot;http://localhost:4000/scratch-test/assets/images/markers-length.png&quot; alt=&quot;detected markers&quot; class=&quot;post-image&quot; /&gt;&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; None&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;Description:&lt;/strong&gt; Returns the number of markers it has detected.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;h4&gt;
+  Get marker from markers
+&lt;/h4&gt;
+
+    &lt;p&gt;&lt;img src=&quot;http://localhost:4000/scratch-test/assets/images/get-marker.png&quot; alt=&quot;Get marker&quot; class=&quot;post-image&quot; /&gt;&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; Index position starting from 1 to n.&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;Description:&lt;/strong&gt; Gets the marker at specified index position from the detected markers list.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;h4&gt;
+  When n markers detected
+&lt;/h4&gt;
+
+    &lt;p&gt;&lt;img src=&quot;http://localhost:4000/scratch-test/assets/images/markers-hat.png&quot; alt=&quot;When markers detected&quot; class=&quot;post-image&quot; /&gt;&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; Number of markers to detect before firing&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;Description:&lt;/strong&gt; Executes the hat block when specified number of markers have been detected.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3&gt;
+  Miscellaneous blocks
+&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;h4&gt;
+  Set block lights
+&lt;/h4&gt;
+
+    &lt;p&gt;&lt;img src=&quot;http://localhost:4000/scratch-test/assets/images/set-lights.png&quot; alt=&quot;Set lights&quot; class=&quot;post-image&quot; /&gt;&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; Motors (m1 .. m6), color&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;Description:&lt;/strong&gt; Sets the lights of the specified motors to specified color.&lt;/p&gt;
+
+    &lt;p&gt;Note: Motors have to be separated by space if specifying multiple motors.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;h4&gt;
+  Get recognized number
+&lt;/h4&gt;
+
+    &lt;p&gt;&lt;img src=&quot;http://localhost:4000/scratch-test/assets/images/number.png&quot; alt=&quot;Recognize number&quot; class=&quot;post-image&quot; /&gt;&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; None&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;Description:&lt;/strong&gt; Tries to recognize a number from the camera&lt;/p&gt;
+
+    &lt;p&gt;Note: In order to use any camera related feature such as this one, be sure to enable the camera on the robot from its configuration panel.&lt;/p&gt;
+
+    &lt;p&gt;For best results, draw a number on a white sheet with a dark color and thick lines/curves.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;h4&gt;
+  Get color image
+&lt;/h4&gt;
+
+    &lt;p&gt;&lt;img src=&quot;http://localhost:4000/scratch-test/assets/images/color-image.png&quot; alt=&quot;Get image&quot; class=&quot;post-image&quot; /&gt;&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;Input:&lt;/strong&gt; None&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;Description:&lt;/strong&gt; Returns the base64 encoded string of the camera capture.&lt;/p&gt;
+
+    &lt;p&gt;Note: In order to use any camera related feature such as this one, be sure to enable the camera on the robot from its configuration panel.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;style type=&quot;text/css&quot;&gt;
+    .post-image{
+        height: 48px;
+    }
+&lt;/style&gt;</content><author><name></name></author><summary type="html">The ergo Scratch extension has a number of blocks that allow you to control the movement, record moves, and activate/deactivate different abilities of the robot.</summary></entry><entry><title type="html">Troubleshooting</title><link href="http://localhost:4000/scratch-test/2017/05/09/Troubleshooting.html" rel="alternate" type="text/html" title="Troubleshooting" /><published>2017-05-09T00:00:00-04:00</published><updated>2017-05-09T00:00:00-04:00</updated><id>http://localhost:4000/scratch-test/2017/05/09/Troubleshooting</id><content type="html" xml:base="http://localhost:4000/scratch-test/2017/05/09/Troubleshooting.html">&lt;h1 id=&quot;scratch-doesnt-connect-to-poppy-ergo-jr&quot;&gt;Scratch doesn’t connect to Poppy Ergo Jr.&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Check if the robot is connected to network. Are you able to access the robots control panel page if you go to the robots IP in the browser?&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Check if the IP format in the Call block is correct. The format should be http://ipaddress:6969/&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;tracking-doesnt-work&quot;&gt;Tracking doesn’t work&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Check if camera is enabled by going to configuration page in the web browser. http://ipadress/ should load the robots control panel. If it doesn’t, you are not on the same network of the robot.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;The camera might be a little slow at detecting markers. Place the markers at least 10cm away and make sure the markers are directly pointing the camera.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">Scratch doesn’t connect to Poppy Ergo Jr.</summary></entry></feed>
