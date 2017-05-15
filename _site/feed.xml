@@ -1,9 +1,19 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="http://localhost:4000/scratch-test/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/scratch-test/" rel="alternate" type="text/html" /><updated>2017-05-11T20:02:51-04:00</updated><id>http://localhost:4000/scratch-test/</id><title type="html">Poppy Ergo Jr</title><subtitle>This extension lets you control a Poppy Ergo Jr. robot using Scratch. Poppy Ergo Jr. is an open-source robot kit developed by Inria, France. More information regarding the robot can be found at https://poppy-project.org.
-</subtitle><entry><title type="html">Setup</title><link href="http://localhost:4000/scratch-test/jekyll/update/2017/05/11/Setup.html" rel="alternate" type="text/html" title="Setup" /><published>2017-05-11T00:00:00-04:00</published><updated>2017-05-11T00:00:00-04:00</updated><id>http://localhost:4000/scratch-test/jekyll/update/2017/05/11/Setup</id><content type="html" xml:base="http://localhost:4000/scratch-test/jekyll/update/2017/05/11/Setup.html">&lt;h1 id=&quot;basic-set-up&quot;&gt;Basic set up&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="http://localhost:4000/scratch-test/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/scratch-test/" rel="alternate" type="text/html" /><updated>2017-05-15T17:21:06-04:00</updated><id>http://localhost:4000/scratch-test/</id><title type="html">Poppy Ergo Jr</title><subtitle>This extension lets you control a Poppy Ergo Jr. robot using Scratch. Poppy Ergo Jr. is an open-source robot kit developed by Inria, France. More information regarding the robot can be found at https://poppy-project.org/.
+</subtitle><entry><title type="html">Setup</title><link href="http://localhost:4000/scratch-test/jekyll/update/2017/05/11/Setup.html" rel="alternate" type="text/html" title="Setup" /><published>2017-05-11T00:00:00-04:00</published><updated>2017-05-11T00:00:00-04:00</updated><id>http://localhost:4000/scratch-test/jekyll/update/2017/05/11/Setup</id><content type="html" xml:base="http://localhost:4000/scratch-test/jekyll/update/2017/05/11/Setup.html">&lt;p&gt;If you are looking for manual setup, scroll down.&lt;/p&gt;
+
+&lt;h1 id=&quot;easy-setup&quot;&gt;Easy setup&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;If your robot isn’t assembled yet, follow the &lt;a href=&quot;https://docs.poppy-project.org/en/assembly-guides/ergo-jr/&quot;&gt;official guide&lt;/a&gt; to assemble the robot.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;manual-setup&quot;&gt;Manual setup&lt;/h1&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
-    &lt;p&gt;To assemble and set up the Raspberry Pi, follow the instructions for the Poppy Ergo Jr. from https://docs.poppy-project.org/en/. Be sure to install the 2.0 image file for the Ergo Jr. (https://github.com/poppy-project/poppy-ergo-jr/releases/tag/2.0.0)&lt;/p&gt;
+    &lt;p&gt;To assemble and set up the Raspberry Pi, follow the instructions for the Poppy Ergo Jr. from https://docs.poppy-project.org/en/. Be sure to install the 2.0 image file for the Ergo Jr. &lt;a href=&quot;https://github.com/poppy-project/poppy-ergo-jr/releases/tag/2.0.0&quot;&gt;Image file&lt;/a&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;You may not be able to reach the poppy control panel using poppy.local. You can instead, access the control panel by entering the IP address of the robot directly into the address bar of your preferred web browser.&lt;/p&gt;
@@ -66,7 +76,7 @@
     &lt;/div&gt;
   &lt;/li&gt;
   &lt;li&gt;Now go to http://ipaddress:5000/generator to generate Markers.&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><summary type="html">Basic set up</summary></entry><entry><title type="html">Blocks</title><link href="http://localhost:4000/scratch-test/jekyll/update/2017/05/10/Blocks.html" rel="alternate" type="text/html" title="Blocks" /><published>2017-05-10T00:00:00-04:00</published><updated>2017-05-10T00:00:00-04:00</updated><id>http://localhost:4000/scratch-test/jekyll/update/2017/05/10/Blocks</id><content type="html" xml:base="http://localhost:4000/scratch-test/jekyll/update/2017/05/10/Blocks.html">&lt;p&gt;The ergo Scratch extension has a number of blocks that allow you to control the movement, record moves, and activate/deactivate different abilities of the robot.&lt;/p&gt;
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">If you are looking for manual setup, scroll down.</summary></entry><entry><title type="html">Blocks</title><link href="http://localhost:4000/scratch-test/jekyll/update/2017/05/10/Blocks.html" rel="alternate" type="text/html" title="Blocks" /><published>2017-05-10T00:00:00-04:00</published><updated>2017-05-10T00:00:00-04:00</updated><id>http://localhost:4000/scratch-test/jekyll/update/2017/05/10/Blocks</id><content type="html" xml:base="http://localhost:4000/scratch-test/jekyll/update/2017/05/10/Blocks.html">&lt;p&gt;The ergo Scratch extension has a number of blocks that allow you to control the movement, record moves, and activate/deactivate different abilities of the robot.&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 

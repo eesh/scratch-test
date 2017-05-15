@@ -4,9 +4,18 @@ title:  "Setup"
 categories: jekyll update
 ---
 
-# Basic set up
+If you are looking for manual setup, scroll down.
 
-* To assemble and set up the Raspberry Pi, follow the instructions for the Poppy Ergo Jr. from https://docs.poppy-project.org/en/. Be sure to install the 2.0 image file for the Ergo Jr. (https://github.com/poppy-project/poppy-ergo-jr/releases/tag/2.0.0)
+# Easy setup
+
+* If your robot isn't assembled yet, follow the [official guide](https://docs.poppy-project.org/en/assembly-guides/ergo-jr/) to assemble the robot.
+
+
+<hr>
+
+# Manual setup
+
+* To assemble and set up the Raspberry Pi, follow the instructions for the Poppy Ergo Jr. from https://docs.poppy-project.org/en/. Be sure to install the 2.0 image file for the Ergo Jr. [Image file](https://github.com/poppy-project/poppy-ergo-jr/releases/tag/2.0.0)
 
 * You may not be able to reach the poppy control panel using poppy.local. You can instead, access the control panel by entering the IP address of the robot directly into the address bar of your preferred web browser.
 
