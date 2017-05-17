@@ -409,7 +409,7 @@
     }
 
     ext.getColorImage = function (callback) {
-      sendRequest(imageURL, "/image", function (response) {
+      sendRequest(imageURL, "image", function (response) {
         callback(response);
       });
     }
