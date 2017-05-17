@@ -409,7 +409,7 @@
     }
 
     ext.getColorImage = function (callback) {
-      sendRequest(imageURL, "/image", function (response) {
+      sendRequest(imageURL, "image", function (response) {
         callback(response);
       });
     }
@@ -466,7 +466,7 @@
           ['r', 'block 5', 'getBlock5Position'],
           ['r', 'block 6', 'getBlock6Position'],
           ['R', 'Recognize number', 'recognizeDigit'],
-          ['R', 'Get color image', 'getColorImage']
+          ['R', 'Get image', 'getColorImage']
         ],
         menus: {
           motorDirection: ['Left', 'Right', 'Front', 'Back'],
