@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Scratchx Spotify Extension</title>
+    <title>Scratchx Ergo Jr. Extension</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -41,7 +41,7 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="#page-top">Scratchx + Spotify</a>
+                <a class="navbar-brand" href="#page-top">Scratchx + Poppy Ergo Jr.</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -112,7 +112,7 @@
                 </div>
 
                 <div class="col-md-8">
-                    <h3><a href="http://scratchx.org/?url=https://eesh.github.io/scratch-test/examples/record-playback.sbx#scratch" target="_blank">
+                    <h3><a href="http://scratchx.org/?url=http://eesh.github.io/scratch-test/examples/record_playback.sbx" target="_blank">
                     Make the poppy draw</a></h3>
                     <p>This simple example shows how to make the robot draw.</p>
                 </div>
@@ -125,7 +125,7 @@
                     <iframe width="300" height="auto" src="https://www.youtube.com/embed/je7UToAGMdk" frameborder="0" allowfullscreen></iframe>
                 </div>
                 <div class="col-md-8">
-                    <a href="http://scratchx.org/?url=https://eesh.github.io/scratch-test/examples/record_playback.sbx#scratch" target="_blank">
+                    <a href="http://scratchx.org/?url=http://eesh.github.io/scratch-test/examples/poppy-dance.sbx" target="_blank">
                     <h3>Poppy see</h3>
                     </a>
                     <p>Makes the poppy perform actions based on what it sees</p>
@@ -227,32 +227,55 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h2>Details</h2><br>
+                    <h2>Setup instructions</h2><br>
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-12">
-                    <b>Blank project</b><br>
-                    <p>To open a blank project with the Spotify extension loaded, click <a href="http://scratchx.org/?url=https://ericrosenbaum.github.io/spotify-extension/extension.js#scratch" target="_blank">here</a>.</p>
+                    <b>Assembly</b><br>
+                    <p>If your robot isn't assembled yet, follow <a href="https://docs.poppy-project.org/en/assembly-guides/ergo-jr/" target="_blank">this guide</a>.</p>
                     <br>
 
-                    <b>30 Second Previews</b><br>
-                    <p>Using this extension requires <b>no login</b> or account info for Spotify. That's because it uses Spotify's public search, which only sends short preview mp3s, up to 30 seconds long.</p>
+                    <b>Software</b><br>
+                    <ul>
+                      <li><p>Remove the microSD card from the Raspberry PI (green board).</p></li>
+                      <li>
+                        <p>Download the poppy image file from <a href="https://drive.google.com/open?id=0B-PtoktebHLAejVDOVBhZkx0aTg">this link</a>.</p>
+                        <br>
+                        <img height="200px" width="300px" src="img/rpi.jpg"></img>
+                        <img height="200px" width="300px" src="img/sdcard.jpg"></img>
+                        <img height="200px" width="300px" src="img/adapter.jpg"></img>
+                      </li>
+                      <li><p>Insert the SD card into your computer.</p></li>
+                      <li><p>Download <a href="https://etcher.io/">Etcher</a>.</p></li>
+                      <li><p>Start Etcher, select the SD card drive, select the poppy image (<b>poppy.img.zip</b>).</p></li>
+                      <li><p>Click burn.</p></li>
+                      <img height="200px" width=auto src="img/etcher.gif"></img>
+                      <li><p>Put the microSD card back in the Raspberry Pi.</p></li>
+                    </ul>
                     <br>
 
-                    <b>Explicit lyrics?</b><br>
-                    <p>The extension includes code to <b>exclude</b> songs which Spotify flags as having "explicit lyrics." This helps prevent it from loading material that is not appropriate for children, but it is no guarantee- sorry!</p>
-                    <br>
-
-                    <b>Multiple Extensions</b><br>
-                    <p>If you want to make a project that combines this extension with other extensions, you can load it by clicking the <b>"load experimental extension"</b> button, then paste in this url:<br><br>
-                    <i>https://ericrosenbaum.github.io/spotify-extension/extension.js</i>
-                    </p>
-                    <br>
-
-                    <b>Mashup Multiple Songs!</b><br>
-                    <p>For advanced users who wish to make <b>mashups</b> that combine <b>multiple songs</b>, you can load multiple copies of the extension at once! Just click "load experimental extension" and paste in the url above, then do the same thing again. Here is an example that mashes up <a href="http://scratchx.org/?url=https://ericrosenbaum.github.io/spotify-extension/examples/gotye+james-brown.sbx#scratch" target="_blank">Gotye and James Brown</a>.</p>
-                    <a href="http://scratchx.org/?url=https://ericrosenbaum.github.io/spotify-extension/examples/gotye+james-brown.sbx#scratch" target="_blank"><img src="img/gotye+jb.png"></a>
+                    <b>Connecting to the Ergo Jr.</b><br>
+                    <ul>
+                      <li>
+                        <p>Create a hotspot on your phone with the SSID as <b>poppy</b> and password as <b>poppyergo</b>.</p>
+                      </li>
+                      <li>
+                        <p>Connect the powercord into the Raspberry pi.</p>
+                        <img height="200px" width="300px" src="img/power.jpg"></img>
+                      </li>
+                      <li>
+                        <p>Wait for the poppy to connect to your hotspot.</p>
+                      </li>
+                      <li>
+                        <p>If you have an Android phone, install <a href="https://play.google.com/store/apps/details?id=com.etustudio.android.hotspotmanager">Hotspot Manager</a> too see the IP Address of the robot.</p>
+                      </li>
+                      <li>
+                        <p>Open the Hotspot Manager and go to the Client tab and locate the robot. Note the IP address of the robot.</p>
+                      </li>
+                      <li><p>Click on any of the examples on the top and replace the IP address in the call block with the new IP address you just noted. The format of the IP address should be <b>http://a.b.c.d:6969/</b> where a, b, c and d are numbers between 0 - 255.</p></li>
+                      <li><p>Click the flag to run the example.</p></li>
+                    </ul>
                     <br>
 
                 </ul>
