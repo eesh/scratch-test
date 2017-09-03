@@ -18,13 +18,13 @@
     let detectionMode = false;
     let motorPositions = [0, 0, 0, 0, 0, 0];
     let updateInterval = undefined;
-    // var SERVICE_UUID = 'ff51b30ed7e24d938842a7c4a57dfb07';
-    // var RX_CHAR = 'ff51b30ed7e24d938842a7c4a57dfb09';
-    // var rx = {};
-    // rx[RX_CHAR] = {notify: true};
-    // var device_info = {uuid: [SERVICE_UUID]};
-    // device_info["read_characteristics"] = rx;
-    // var device = null;
+    var SERVICE_UUID = 'ff51b30ed7e24d938842a7c4a57dfb07';
+    var RX_CHAR = 'ff51b30ed7e24d938842a7c4a57dfb09';
+    var rx = {};
+    rx[RX_CHAR] = {notify: true};
+    var device_info = {uuid: [SERVICE_UUID]};
+    device_info["read_characteristics"] = rx;
+    var device = null;
 
     $.getScript('https://eesh.github.io/scratch-test/digit_recognition.js');
     $.getScript('https://eesh.github.io/scratch-test/clarifai.js');
@@ -425,33 +425,33 @@
       }
     };
 
-  //   function processInput(data) {
-  //     console.log("data", data);
-  //   }
-  //
-  //   ext._deviceConnected = function(dev) {
-  //   if (device) return;
-  //   device = dev;
-  //   device.open(function(d) {
-  //     if (device == d) {
-  //       console.log(d)
-  //       device.on(RX_CHAR, function(data) {
-  //         console.log(data);
-  //       });
-  //     } else if (d) {
-  //       console.log('Received open callback for wrong device');
-  //     } else {
-  //       console.log('Opening device failed');
-  //       device = null;
-  //     }
-  //   });
-  // };
-  //
-  // ext._deviceRemoved = function(dev) {
-  //   rawData = [];
-  //   if (device != dev) return;
-  //   device = null;
-  // };
+    function processInput(data) {
+      console.log("data", data);
+    }
+
+    ext._deviceConnected = function(dev) {
+    if (device) return;
+    device = dev;
+    device.open(function(d) {
+      if (device == d) {
+        console.log(d)
+        device.on(RX_CHAR, function(data) {
+          console.log(data);
+        });
+      } else if (d) {
+        console.log('Received open callback for wrong device');
+      } else {
+        console.log('Opening device failed');
+        device = null;
+      }
+    });
+  };
+
+  ext._deviceRemoved = function(dev) {
+    rawData = [];
+    if (device != dev) return;
+    device = null;
+  };
 
     // Block and block menu descriptions
     var descriptor = {
@@ -492,6 +492,44 @@
         }
     };
 
+    function findRobots(baseIP) {
+      robots = [];
+      for(var ip = 0; ip < 256; ip++) {
+        var testIP = 'http://' + baseIP + ip + ':6969/';
+        console.log('Testing ' + testIP);
+        sendRequest(testIP, 'ip', function(response) {
+          if (response.lenth > 1) {
+            console.log('Robot found at: ' + testIP);
+            robots.push(robots);
+          }
+        })
+      }
+    }
+
+    function getLocalIP() {
+      var deferred = $.Deferred();
+        window.RTCPeerConnection = window.RTCPeerConnection || window.mozRTCPeerConnection || window.webkitRTCPeerConnection;   //compatibility for firefox and chrome
+        var pc = new RTCPeerConnection({iceServers: []}), noop = function () {
+        };
+        pc.createDataChannel("");    //create a bogus data channel
+        pc.createOffer(pc.setLocalDescription.bind(pc), noop);    // create offer and set local description
+        pc.onicecandidate = function (ice) {  //listen for candidate events
+            if (!ice || !ice.candidate || !ice.candidate.candidate)  return;
+            var regex = /(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)/;
+            var candidate = ice.candidate.candidate;
+            var localIp = candidate.match(regex)
+            pc.onicecandidate = noop;
+            deferred.resolve(localIp[0]);
+        };
+        return deferred.promise();
+    }
+
     // Register the extension
     ScratchExtensions.register('Poppy Ergo Jr.', descriptor, ext);
+
+    getLocalIP().then(function (localIp) {
+            var baseIp = localIp.substr(0, localIp.lastIndexOf('.') + 1);
+            findRobots(baseIp);
+            return;
+          });
 })({});
