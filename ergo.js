@@ -18,40 +18,16 @@
     let detectionMode = false;
     let motorPositions = [0, 0, 0, 0, 0, 0];
     let updateInterval = undefined;
-
+    // var SERVICE_UUID = 'ff51b30ed7e24d938842a7c4a57dfb07';
+    // var RX_CHAR = 'ff51b30ed7e24d938842a7c4a57dfb09';
+    // var rx = {};
+    // rx[RX_CHAR] = {notify: true};
+    // var device_info = {uuid: [SERVICE_UUID]};
+    // device_info["read_characteristics"] = rx;
+    // var device = null;
 
     $.getScript('https://eesh.github.io/scratch-test/digit_recognition.js');
-    $.getScript('https://eesh.github.io/scratch-test/clarifai.js', checkClarifai);
-
-    // function checkDigitRecognitionLibrary() {
-    //   if (neuralnet == undefined) {
-    //     console.log("digit_recognition.js is not loaded");
-    //   } else {
-    //     console.log("digit_recognition.js loaded.");
-    //   }
-    // }
-
-
-    function checkClarifai() {
-      /*
-      var app = new Clarifai.App(
-        'vKCXoGNBI9RrFYs33BUxcDOB3WoMJ5rK9D0hSD4J',
-        'cva5xoSvMf_htwZZHIZ_9JhjThL8N0BX_PqaJPUj'
-      );
-
-      app.inputs.search({
-        concept: {
-          name: 'robot'
-        }
-      }).then(
-        function(response) {
-          console.log(response);
-        },
-        function(response) {
-          console.error(response);
-        }
-      );*/
-    }
+    $.getScript('https://eesh.github.io/scratch-test/clarifai.js');
 
 
     function getMotorPostions() {
@@ -432,12 +408,50 @@
     // Status reporting code
     // Use this to report missing hardware, plugin or unsupported browser
     ext._getStatus = function() {
+      var printstmt = {};
+      if (device) {
+        if (device.is_open()) {
+          printstmt = {status: 2, msg: 'Poppy Ergo Jr. connected via BLE'};
+        } else {
+          printstmt = {status: 1, msg: 'Poppy Ergo Jr. connecting...'};
+        }
+      } else {
+        printstmt = {status: 1, msg: 'Poppy Ergo Jr. disconnected'};
+      }
       if(connected == false) {
         return {status:1, msg: 'Not connected to Poppy Ergo Jr.'};
       } else {
         return {status:2, msg: 'Connected to Poppy Ergo Jr.'};
       }
     };
+
+  //   function processInput(data) {
+  //     console.log("data", data);
+  //   }
+  //
+  //   ext._deviceConnected = function(dev) {
+  //   if (device) return;
+  //   device = dev;
+  //   device.open(function(d) {
+  //     if (device == d) {
+  //       console.log(d)
+  //       device.on(RX_CHAR, function(data) {
+  //         console.log(data);
+  //       });
+  //     } else if (d) {
+  //       console.log('Received open callback for wrong device');
+  //     } else {
+  //       console.log('Opening device failed');
+  //       device = null;
+  //     }
+  //   });
+  // };
+  //
+  // ext._deviceRemoved = function(dev) {
+  //   rawData = [];
+  //   if (device != dev) return;
+  //   device = null;
+  // };
 
     // Block and block menu descriptions
     var descriptor = {
