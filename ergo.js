@@ -492,15 +492,12 @@
         }
     };
 
-    function findRobots(baseIP) {
-      robots = [];
+    function findRobots(baseIP, port) {
       for(var ip = 0; ip < 256; ip++) {
-        var testIP = 'http://' + baseIP + ip + ':6969/';
-        console.log('Testing ' + testIP);
+        var testIP = 'http://' + baseIP + ip + ':'+port+'/';
         sendRequest(testIP, 'ip', function(response) {
-          if (response.lenth > 1) {
-            console.log('Robot found at: ' + testIP);
-            robots.push(robots);
+          if (response.length > 1) {
+            console.log('Robot found at: ' + response);
           }
         })
       }
@@ -529,7 +526,7 @@
 
     getLocalIP().then(function (localIp) {
             var baseIp = localIp.substr(0, localIp.lastIndexOf('.') + 1);
-            findRobots(baseIp);
+            findRobots(baseIp, 6969);
             return;
           });
 })({});
